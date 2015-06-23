@@ -1,0 +1,650 @@
+{
+  "type": "FeatureCollection", 
+  "features": [
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.3068297", 
+          "43.3790929"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Saint Peter School", 
+        "Address": "92 Avenue Rd, Cambridge N1R 1C1"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.2977856", 
+          "43.3531020"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Saint Ambrose School", 
+        "Address": "25 Chalmers St S, Cambridge N1R 5B3"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.3446178", 
+          "43.3960546"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Langs", 
+        "Address": "1145 Concession Rd, Cambridge N3H 4L5"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.3446893", 
+          "43.3962012"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Saint Michael School", 
+        "Address": "1150 Concession Rd, Cambridge N3H 4L6"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.3137990", 
+          "43.3704940"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Manchester Public School", 
+        "Address": "455 Dundas St, Cambridge N1R 5R5"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.3002909", 
+          "43.3660853"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Saint Anne School", 
+        "Address": "127 Elgin St N, Cambridge N1R 5H6"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.3123460", 
+          "43.3796989"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Avenue Road Public School", 
+        "Address": "40 Gail St, Cambridge N1R 4M2"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.3550545", 
+          "43.3914990"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Grand View Public School", 
+        "Address": "1144 Hamilton St, Cambridge N3H 3G2"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.3407240", 
+          "43.3987570"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Langs Youth/Teen Community Centre", 
+        "Address": "581E Langs Dr, Cambridge N3H 2N4"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.3083014", 
+          "43.3572137"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Central Public School", 
+        "Address": "175 Main St E, Cambridge N1R 1W5"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.3269900", 
+          "43.3498850"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Saint Gregory School", 
+        "Address": "34 Osborne Ave, Cambridge N1S 3H1"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.3777870", 
+          "43.3968522"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Parkway Public School", 
+        "Address": "436 Preston Pky, Cambridge N3H 5C7"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.3264512", 
+          "43.3581297"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Highland Public School", 
+        "Address": "125 Salisbury Ave, Cambridge N1S 1J8"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.3178332", 
+          "43.4241345"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Centennial Public School", 
+        "Address": "100 Weaver St, Cambridge N3C 1W4"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.3654748", 
+          "43.3888474"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Saint Joseph School", 
+        "Address": "980 Westminster Dr S, Cambridge N3H 1V2"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.5712161", 
+          "43.5931297"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Saint Teresa School", 
+        "Address": "69 First St W, Elmira N3B 1G5"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.4383951", 
+          "43.3926988"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Saint Timothy School", 
+        "Address": "15 Bechtel Dr, Kitchener N2P 1T4"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.4860492", 
+          "43.4836318"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Bridgeport Public School", 
+        "Address": "59 Bridge St W, Kitchener N2K 1K6"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.5235217", 
+          "43.4433061"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "AR Kaufman Public School", 
+        "Address": "11 Chopin Dr, Kitchener N2M 2G3"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.4457034", 
+          "43.4283578"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Saint Aloysius School", 
+        "Address": "504 Connaught St, Kitchener N2C 1C2"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.4715560", 
+          "43.4507679"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Saint Anne School", 
+        "Address": "250 East Ave, Kitchener N2H 1Z4"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.4929469", 
+          "43.4108315"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Glencairn Public School", 
+        "Address": "664 Erinbrook Dr, Kitchener N2E 2A1"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.4480817", 
+          "43.4442735"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Franklin Public School", 
+        "Address": "371 Franklin St N, Kitchener N2A 1Y9"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.5048633", 
+          "43.4315138"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Saint Francis Campus", 
+        "Address": "154 Gatewood Rd, Kitchener N2M 4E4"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.5216531", 
+          "43.4500911"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Westmount Public School", 
+        "Address": "329 Glasgow St, Kitchener N2M 2M9"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.4922608", 
+          "43.4334563"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Saint Bernadette School", 
+        "Address": "245 Lorne Ave, Kitchener N2M 3Y9"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.4908965", 
+          "43.4596470"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Margaret Avenue Public School", 
+        "Address": "325 Louisa St, Kitchener N2H 5N1"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.4822138", 
+          "43.4195465"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Alpine Public School", 
+        "Address": "75 Lucerne Dr, Kitchener N2E 1B4"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.4403890", 
+          "43.4540361"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Crestview Public School", 
+        "Address": "153 Montcalm Dr, Kitchener N2B 2R6"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.4301941", 
+          "43.4295813"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Howard Robertson Public School", 
+        "Address": "130 Morgan Ave, Kitchener N2A 2M5"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.5362849", 
+          "43.4143945"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Driftwood Park Public School", 
+        "Address": "50 Parkland Cres, Kitchener N2N 1S4"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.5040111", 
+          "43.4403512"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "JF Carmichael Public School", 
+        "Address": "80 Patricia Ave, Kitchener N2M 1J3"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.4940060", 
+          "43.4186796"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Monsignor RM Haller", 
+        "Address": "118 Shea Cres, Kitchener N2E 1E8"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.5084852", 
+          "43.4491062"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Saint John's School", 
+        "Address": "99 Strange St, Kitchener N2G 1R4"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.4835202", 
+          "43.4065154"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Blessed Sacrament School", 
+        "Address": "367 The Country Way, Kitchener N2E 2S3"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.4436885", 
+          "43.3973692"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Pioneer Park Public School", 
+        "Address": "55 Upper Canada Dr, Kitchener N2P 1G2"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.4650026", 
+          "43.4293910"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Rockway Public School", 
+        "Address": "70 Vanier Dr, Kitchener N2C 1J5"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.4512474", 
+          "43.4358605"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Sunnyside Public School", 
+        "Address": "1042 Weber St E, Kitchener N2A 1B6"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.4529811", 
+          "43.4268234"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Wilson Avenue Public School", 
+        "Address": "221 Wilson Ave, Kitchener N2C 1G9"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.5502964", 
+          "43.4871148"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "No", 
+        "Site": "Cedarbrae Public School", 
+        "Address": "230 Cedarbrae Ave, Waterloo N2L 4S7"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.5468252", 
+          "43.4601429"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Keatsway Public School", 
+        "Address": "323 Keats Way, Waterloo N2L 5V9"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.5343631", 
+          "43.4855317"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "Winston Churchill Public School", 
+        "Address": "100 Milford Ave, Waterloo N2L 3Z3"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "-80.5043990", 
+          "43.4643443"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Accessible": "Yes", 
+        "Site": "New Dawn School", 
+        "Address": "151 Weber St S, Waterloo N2J 2A9"
+      }
+    }
+  ]
+}
