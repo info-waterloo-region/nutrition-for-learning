@@ -11,7 +11,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Saint Peter School", 
         "Address": "92 Avenue Rd, Cambridge N1R 1C1"
       }
@@ -26,7 +26,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Saint Ambrose School", 
         "Address": "25 Chalmers St S, Cambridge N1R 5B3"
       }
@@ -41,7 +41,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Langs", 
         "Address": "1145 Concession Rd, Cambridge N3H 4L5"
       }
@@ -56,7 +56,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Saint Michael School", 
         "Address": "1150 Concession Rd, Cambridge N3H 4L6"
       }
@@ -71,7 +71,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Manchester Public School", 
         "Address": "455 Dundas St, Cambridge N1R 5R5"
       }
@@ -86,7 +86,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Saint Anne School", 
         "Address": "127 Elgin St N, Cambridge N1R 5H6"
       }
@@ -101,7 +101,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Avenue Road Public School", 
         "Address": "40 Gail St, Cambridge N1R 4M2"
       }
@@ -116,7 +116,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Grand View Public School", 
         "Address": "1144 Hamilton St, Cambridge N3H 3G2"
       }
@@ -131,7 +131,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Langs Youth/Teen Community Centre", 
         "Address": "581E Langs Dr, Cambridge N3H 2N4"
       }
@@ -146,7 +146,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Central Public School", 
         "Address": "175 Main St E, Cambridge N1R 1W5"
       }
@@ -161,7 +161,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Saint Gregory School", 
         "Address": "34 Osborne Ave, Cambridge N1S 3H1"
       }
@@ -176,7 +176,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Parkway Public School", 
         "Address": "436 Preston Pky, Cambridge N3H 5C7"
       }
@@ -191,7 +191,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Highland Public School", 
         "Address": "125 Salisbury Ave, Cambridge N1S 1J8"
       }
@@ -206,7 +206,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Centennial Public School", 
         "Address": "100 Weaver St, Cambridge N3C 1W4"
       }
@@ -221,7 +221,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Saint Joseph School", 
         "Address": "980 Westminster Dr S, Cambridge N3H 1V2"
       }
@@ -236,7 +236,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Saint Teresa School", 
         "Address": "69 First St W, Elmira N3B 1G5"
       }
@@ -251,7 +251,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Saint Timothy School", 
         "Address": "15 Bechtel Dr, Kitchener N2P 1T4"
       }
@@ -266,7 +266,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Bridgeport Public School", 
         "Address": "59 Bridge St W, Kitchener N2K 1K6"
       }
@@ -281,7 +281,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "AR Kaufman Public School", 
         "Address": "11 Chopin Dr, Kitchener N2M 2G3"
       }
@@ -296,7 +296,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Saint Aloysius School", 
         "Address": "504 Connaught St, Kitchener N2C 1C2"
       }
@@ -311,7 +311,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Saint Anne School", 
         "Address": "250 East Ave, Kitchener N2H 1Z4"
       }
@@ -326,7 +326,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Glencairn Public School", 
         "Address": "664 Erinbrook Dr, Kitchener N2E 2A1"
       }
@@ -341,7 +341,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Franklin Public School", 
         "Address": "371 Franklin St N, Kitchener N2A 1Y9"
       }
@@ -356,7 +356,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Saint Francis Campus", 
         "Address": "154 Gatewood Rd, Kitchener N2M 4E4"
       }
@@ -371,7 +371,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Westmount Public School", 
         "Address": "329 Glasgow St, Kitchener N2M 2M9"
       }
@@ -386,7 +386,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Saint Bernadette School", 
         "Address": "245 Lorne Ave, Kitchener N2M 3Y9"
       }
@@ -401,7 +401,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Margaret Avenue Public School", 
         "Address": "325 Louisa St, Kitchener N2H 5N1"
       }
@@ -416,7 +416,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Alpine Public School", 
         "Address": "75 Lucerne Dr, Kitchener N2E 1B4"
       }
@@ -431,7 +431,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Crestview Public School", 
         "Address": "153 Montcalm Dr, Kitchener N2B 2R6"
       }
@@ -446,7 +446,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Howard Robertson Public School", 
         "Address": "130 Morgan Ave, Kitchener N2A 2M5"
       }
@@ -461,7 +461,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Driftwood Park Public School", 
         "Address": "50 Parkland Cres, Kitchener N2N 1S4"
       }
@@ -476,7 +476,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "JF Carmichael Public School", 
         "Address": "80 Patricia Ave, Kitchener N2M 1J3"
       }
@@ -491,7 +491,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Monsignor RM Haller", 
         "Address": "118 Shea Cres, Kitchener N2E 1E8"
       }
@@ -506,7 +506,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Saint John's School", 
         "Address": "99 Strange St, Kitchener N2G 1R4"
       }
@@ -521,7 +521,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Blessed Sacrament School", 
         "Address": "367 The Country Way, Kitchener N2E 2S3"
       }
@@ -536,7 +536,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Pioneer Park Public School", 
         "Address": "55 Upper Canada Dr, Kitchener N2P 1G2"
       }
@@ -551,7 +551,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Rockway Public School", 
         "Address": "70 Vanier Dr, Kitchener N2C 1J5"
       }
@@ -566,7 +566,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Sunnyside Public School", 
         "Address": "1042 Weber St E, Kitchener N2A 1B6"
       }
@@ -581,7 +581,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Wilson Avenue Public School", 
         "Address": "221 Wilson Ave, Kitchener N2C 1G9"
       }
@@ -596,7 +596,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "No", 
+        "Access": false, 
         "Site": "Cedarbrae Public School", 
         "Address": "230 Cedarbrae Ave, Waterloo N2L 4S7"
       }
@@ -611,7 +611,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Keatsway Public School", 
         "Address": "323 Keats Way, Waterloo N2L 5V9"
       }
@@ -626,7 +626,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "Winston Churchill Public School", 
         "Address": "100 Milford Ave, Waterloo N2L 3Z3"
       }
@@ -641,7 +641,7 @@
       }, 
       "type": "Feature", 
       "properties": {
-        "Accessible": "Yes", 
+        "Access": true, 
         "Site": "New Dawn School", 
         "Address": "151 Weber St S, Waterloo N2J 2A9"
       }
