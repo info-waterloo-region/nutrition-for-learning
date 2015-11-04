@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutrition for Learning</title>
+  <link href="leaflet/leaflet.css" rel="stylesheet">
+  <style>
+body,
+html,
+.map-container,
+#map {
+  height: 100%;
+}
+  </style>
+</head>
+<body>
+  <div class="map-container">
+    <div id="map"></div>
+  </div>
+  <script src="leaflet/leaflet.js"></script>
+  <script src="leaflet/leaflet.ajax.js"></script>
+  <script>
+
+var map = new L.map("map")
+map.setView([43.43,-80.46], 11);
+
+var tile_url = "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+var tile_options = {
+  maxZoom: 16,
+  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}
+var tile = new L.tileLayer(tile_url, tile_options);
+
+map.addLayer(tile);
+
+var neighbourhoodLayer = new L.GeoJSON.AJAX("neighbourhoods.json");
+map.addLayer(neighbourhoodLayer);
+  </script>
+</body>
+</html>
+
