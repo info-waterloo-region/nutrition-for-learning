@@ -164,12 +164,12 @@
                   <td>{{enrolment}}</td>
                 </tr>
                 <tr>
-                  <th>Students accessing program</th>
+                  <th>Students accessing Nutrition for Learning</th>
                   <td>{{num_unique}} ({{per_accessing}}%)</td>
                 </tr>
                 <tr>
-                  <th>Below median on EQAO tests</th>
-                  <td>{{num_achieve}} ({{per_achieve}}%)</td>
+                  <th>Below median on achievement tests</th>
+                  <td>{{per_achieve}}%</td>
                 </tr>
                 <tr>
                   <th>Students bused to school</th>
@@ -180,11 +180,11 @@
                   <td>{{university}}</td>
                 </tr>
                 <tr>
-                  <th>Low income families</th>
+                  <th>Students from low income families</th>
                   <td>{{low_income}}</td>
                 </tr>
                 <tr>
-                  <th>Non-english newcomer families</th>
+                  <th>Non-English newcomer students</th>
                   <td>{{non_english_newcomers}}</td>
                 </tr>
               </tbody>
@@ -204,11 +204,11 @@
                   <td>{{families}}</td>
                 </tr>
                 <tr>
-                  <th>Single parent familes</th>
+                  <th>Single parent families</th>
                   <td>{{single_parent}} ({{single_parents}}%)</td>
                 </tr>
                 <tr>
-                  <th>Non-english at home</th>
+                  <th>Non-English at home</th>
                   <td>{{not_english}}</td>
                 </tr>
                 <tr>
@@ -317,15 +317,15 @@
               <h4>{{neighbourhood}}</h4>
             <ul class="list-group">
               {{#if social_cohesion}}
-              <li class="list-group-item"><strong>{{social_cohesion}}%</strong> of families experience <strong>social cohesion</strong></li>
+              <li class="list-group-item"><strong>{{social_cohesion}}%</strong> of families experience <strong>low social cohesion</strong></li>
               {{/if}}
 
               {{#if disposable_income}}
-              <li class="list-group-item"><strong>{{disposable_income}}</strong> % of families without <strong>disposable income</strong></li>
+              <li class="list-group-item"><strong>{{disposable_income}}</strong> % of families <strong>without disposable income</strong></li>
               {{/if}}
 
               {{#if early_development}}
-              <li class="list-group-item"><strong>{{early_development}}</strong> % of children scoring low in <strong>early development</strong></li>
+              <li class="list-group-item"><strong>{{early_development}}</strong> % of children <strong>scoring low in the Early Development Instrument</strong></li>
               {{/if}}
 
               {{#if infants_at_risk}}
