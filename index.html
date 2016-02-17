@@ -143,7 +143,11 @@
           <li role="presentation" class="active">
             <a href="#summary" aria-controls="summary" role="tab" data-toggle="tab">Summary</a>
           </li>
+          {{#if programs}}
           <li role="presentation">
+          {{else}}
+          <li role="presentation" class="disabled">
+          {{/if}}
             <a href="#programs" aria-controls="programs" role="tab" data-toggle="tab">Programs</a>
           </li>
           <li role="presentation">
@@ -157,76 +161,81 @@
           <div role="tabpanel" class="tab-pane active" id="summary">
             {{#with school_summary}}
             <h4>School Summary</h4>
-            <table class="table">
-              <tbody>
-                <tr>
-                  <th>Enrolment</th>
-                  <td>{{enrolment}}</td>
-                </tr>
-                <tr>
-                  <th>Students accessing Nutrition for Learning</th>
-                  <td>{{num_unique}} ({{per_accessing}}%)</td>
-                </tr>
-                <tr>
-                  <th>Below median on achievement tests</th>
-                  <td>{{per_achieve}}%</td>
-                </tr>
-                <tr>
-                  <th>Students bused to school</th>
-                  <td>{{num_transported}} ({{per_transported}}%)</td>
-                </tr>
-                <tr>
-                  <th>Parents with university education</th>
-                  <td>{{university}}</td>
-                </tr>
-                <tr>
-                  <th>Students from low income families</th>
-                  <td>{{low_income}}</td>
-                </tr>
-                <tr>
-                  <th>Non-English newcomer students</th>
-                  <td>{{non_english_newcomers}}</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="table-responsive">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <th>Enrolment</th>
+                    <td>{{enrolment}}</td>
+                  </tr>
+                  <tr>
+                    <th>Students accessing Nutrition for Learning</th>
+                    <td>{{#if programs}}{{num_unique}} ({{per_accessing}}%){{else}}NA{{/if}}</td>
+                  </tr>
+                  <tr>
+                    <th>Below median on achievement tests</th>
+                    <td>{{per_achieve}}%</td>
+                  </tr>
+                  <tr>
+                    <th>Students bused to school</th>
+                    <td>{{num_transported}} ({{per_transported}}%)</td>
+                  </tr>
+                  <tr>
+                    <th>Parents with university education</th>
+                    <td>{{university}}</td>
+                  </tr>
+                  <tr>
+                    <th>Students from low income families</th>
+                    <td>{{low_income}}</td>
+                  </tr>
+                  <tr>
+                    <th>Non-English newcomer students</th>
+                    <td>{{non_english_newcomers}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
             {{/with}}
 
             {{#with neighbourhood_summary}}
             <h4>Neighbourhood Summary</h4>
-            <table class="table">
-              <tbody>
-                <tr>
-                  <th>Population 0-19</th>
-                  <td>{{population}} ({{percent}}%)</td>
-                </tr>
-                <tr>
-                  <th>Census families with children</th>
-                  <td>{{families}}</td>
-                </tr>
-                <tr>
-                  <th>Single parent families</th>
-                  <td>{{single_parent}} ({{single_parents}}%)</td>
-                </tr>
-                <tr>
-                  <th>Non-English at home</th>
-                  <td>{{not_english}}</td>
-                </tr>
-                <tr>
-                  <th>Occupied dwellings</th>
-                  <td>{{dwellings}}</td>
-                </tr>
-                <tr>
-                  <th>Non-single-detached homes</th>
-                  <td>{{non_semi_detached}} ({{non_single_detached}}%)</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="table-responsive">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <th>Population 0-19</th>
+                    <td>{{population}} ({{percent}}%)</td>
+                  </tr>
+                  <tr>
+                    <th>Census families with children</th>
+                    <td>{{families}}</td>
+                  </tr>
+                  <tr>
+                    <th>Single parent families</th>
+                    <td>{{single_parent}} ({{single_parents}}%)</td>
+                  </tr>
+                  <tr>
+                    <th>Non-English at home</th>
+                    <td>{{not_english}}</td>
+                  </tr>
+                  <tr>
+                    <th>Occupied dwellings</th>
+                    <td>{{dwellings}}</td>
+                  </tr>
+                  <tr>
+                    <th>Non-single-detached homes</th>
+                    <td>{{non_semi_detached}} ({{per_non_single_detached}}%)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
             {{/with}}
           </div>
 
           <div role="tabpanel" class="tab-pane" id="programs">
             {{#if programs}}
               {{#each programs}}
+            <div class="table-responsive">
               <table class="table table-bordered">
                 <caption><h4>{{name}}</h4></caption>
                 <thead>
@@ -248,6 +257,7 @@
                 <td>{{weeks}}</td>
                 </tbody>
               </table>
+            </div>
               {{/each}}
             {{else}}
             <h5>No programs at this site.</h5>
@@ -255,83 +265,89 @@
           </div>
           <div role="tabpanel" class="tab-pane" id="school">
           {{#with properties}}
-          <table class="table">
-            <tbody>
-              <tr><th>Board</th><td>{{board}}</td></tr>
-              <tr><th>Level</th><td>{{level}}</td></tr>
-              <tr><th>Language</th><td>{{language}}</td></tr>
-              {{#each languages}}
-              <tr><th>{{@key}}</th><td>{{this}}</td></tr>
-              {{/each}}
-              <tr><th>Opened</th><td>{{opened}}</td></tr>
-              <tr><th>Enrolment</th><td>{{enrolment}}</td></tr>
-              <tr><th>Grade Range</th><td>{{grades}}</td></tr>
-              {{#if conditions}}
-              <tr><th>Special Conditions Code</th><td>{{conditions}}</td></tr>
-              {{/if}}
-              {{#if gifted}}
-              <tr><th>Gifted</th><td>{{gifted}}</td></tr>
-              {{/if}}
-              {{#if special}}
-              <tr><th>Special education students</th><td>{{special}}</td></tr>
-              {{/if}}
-              {{#if university}}
-              <tr><th>Parents with university education</th><td>{{university}}</td></tr>
-              {{/if}}
-              {{#if website}}
-              <tr><th>Website</th><td><a href="{{website}}">{{website}}</a></td></tr>
-              {{/if}}
-              {{#if low_income}}
-              <tr><th>Low income families</th><td>{{low_income}}</td></tr>
-              {{/if}}
-            </tbody>
-          </table>
+            <div class="table-responsive">
+              <table class="table">
+                <tbody>
+                  <tr><th>Level</th><td>{{level}}</td></tr>
+                  <tr><th>Grade Range</th><td>{{grades}}</td></tr>
+                  {{#if conditions}}
+                  <tr><th>Special Conditions Code</th><td>{{conditions}}</td></tr>
+                  {{/if}}
+                  <tr><th>Board</th><td>{{board}}</td></tr>
+                  <tr><th>Enrolment</th><td>{{enrolment}}</td></tr>
+                  <tr><th>Language</th><td>{{language}}</td></tr>
+                  {{#each languages}}
+                  <tr><th>{{@key}}</th><td>{{this}}</td></tr>
+                  {{/each}}
+                  {{#if gifted}}
+                  <tr><th>Gifted</th><td>{{gifted}}</td></tr>
+                  {{/if}}
+                  {{#if special}}
+                  <tr><th>Special education students</th><td>{{special}}</td></tr>
+                  {{/if}}
+                  {{#if university}}
+                  <tr><th>Parents with university education</th><td>{{university}}</td></tr>
+                  {{/if}}
+                  {{#if low_income}}
+                  <tr><th>Low income families</th><td>{{low_income}}</td></tr>
+                  {{/if}}
+                  {{#if website}}
+                  <tr><th>Website</th><td><a href="{{website}}">{{website}}</a></td></tr>
+                  {{/if}}
+                  <tr><th>Opened</th><td>{{opened}}</td></tr>
+                </tbody>
+              </table>
+            </div>
           {{/with}}
           {{#if achievements}}
             <h4>Achievements</h4>
             <p>Percentage of students achieving provincial standard</p>
-            <table class="table">
-              <tbody>
-            {{#each achievements}}
-                 <tr><th>{{@key}}</th><td>{{this}}</td></tr>
-            {{/each}}
-              <tbody>
-            </table>
+            <div class="table-responsive">
+              <table class="table">
+                <tbody>
+              {{#each achievements}}
+                   <tr><th>{{@key}}</th><td>{{this}}</td></tr>
+              {{/each}}
+                <tbody>
+              </table>
+            </div>
           {{/if}}
           </div>
           <div role="tabpanel" class="tab-pane" id="neighbourhood">
             {{#with district}}
             <h4>{{Name}} ({{Municipality}})</h4>
-            <table class="table">
-              <tbody>
-                <tr><th>Population (2011)</th><td>{{Pop2011}}</td></tr>
-                <tr><th>Children 0-4</th><td>{{Pop04}} ({{Percent04}}%)</td></tr>
-                <tr><th>Children 5-9</th><td>{{Pop59}} ({{Percent59}}%)</td></tr>
-                <tr><th>Children 10-14</th><td>{{Pop1014}} ({{Percent1014}}%)</td></tr>
-                <tr><th>Youth 15-19</th><td>{{Pop1519}} ({{Percent1519}}%)</td></tr>
-              </tbody>
-            </table>
+            <div class="table-responsive">
+              <table class="table">
+                <tbody>
+                  <tr><th>Population (2011)</th><td>{{Pop2011}}</td></tr>
+                  <tr><th>Children 0-4</th><td>{{Pop04}} ({{Percent04}}%)</td></tr>
+                  <tr><th>Children 5-9</th><td>{{Pop59}} ({{Percent59}}%)</td></tr>
+                  <tr><th>Children 10-14</th><td>{{Pop1014}} ({{Percent1014}}%)</td></tr>
+                  <tr><th>Youth 15-19</th><td>{{Pop1519}} ({{Percent1519}}%)</td></tr>
+                </tbody>
+              </table>
+            </div>
             {{/with}}
 
             {{#with neighbourhood}}
               <h4>{{neighbourhood}}</h4>
-            <ul class="list-group">
-              {{#if social_cohesion}}
-              <li class="list-group-item"><strong>{{social_cohesion}}%</strong> of families experience <strong>low social cohesion</strong></li>
-              {{/if}}
+              <ul class="list-group">
+                {{#if social_cohesion}}
+                <li class="list-group-item"><strong>{{social_cohesion}}%</strong> of families experience <strong>low social cohesion</strong></li>
+                {{/if}}
 
-              {{#if disposable_income}}
-              <li class="list-group-item"><strong>{{disposable_income}}</strong> % of families <strong>without disposable income</strong></li>
-              {{/if}}
+                {{#if disposable_income}}
+                <li class="list-group-item"><strong>{{disposable_income}}</strong> % of families <strong>without disposable income</strong></li>
+                {{/if}}
 
-              {{#if early_development}}
-              <li class="list-group-item"><strong>{{early_development}}</strong> % of children <strong>scoring low in the Early Development Instrument</strong></li>
-              {{/if}}
+                {{#if early_development}}
+                <li class="list-group-item"><strong>{{early_development}}</strong> % of children <strong>scoring low in the Early Development Instrument</strong></li>
+                {{/if}}
 
-              {{#if infants_at_risk}}
-              <li class="list-group-item"><strong>{{infants_at_risk}}</strong> % of <strong>infants at risk</strong></li>
-              {{/if}}
-            </ul>
+                {{#if infants_at_risk}}
+                <li class="list-group-item"><strong>{{infants_at_risk}}</strong> % of <strong>infants at risk</strong></li>
+                {{/if}}
+              </ul>
             {{/with}}
           </div>
         </div>
@@ -364,6 +380,17 @@
           return val;
         }
       }
+      var grades = function(r) {
+        switch (r) {
+          case "01/08/2015": return "1-8";
+          case "05/08/2015": return "5-8";
+          case "06/08/2015": return "6-8";
+          case "07/08/2015": return "7-8";
+          case "07/12/2015": return "7-12";
+          case "09/12/2015": return "9-12";
+          default: return r;
+        }
+      }
       var rank = function(indicator) {
         switch (indicator) {
           case 4: return "Highest";
@@ -385,12 +412,12 @@
       var languages = function(props) {
         if (props["School Language"] == "French") {
           return {
-            "Not French": props["not_french"],
+            "First language is not French": props["not_french"],
             "Non French speaking newcomers": props["non_french_newcomers"]
           }
         } else {
           return {
-            "Not English": props["not_english"],
+            "First language is not English": props["not_english"],
             "Non English speaking newcomers": props["non_english_newcomers"]
           }
         }
@@ -433,7 +460,7 @@
             "board": prop["Board Name"],
             "opened": new Date(prop["Date Open"]).getFullYear(),
             "enrolment": prop["Enrolment"],
-            "grades": prop["Grade Range"],
+            "grades": grades(prop["Grade Range"]),
             "language": prop["School Language"],
             "languages": languages(prop),
             "level": prop["School Level"],
