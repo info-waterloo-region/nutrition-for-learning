@@ -1,42 +1,577 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nutrition for Learning</title>
-  <link href="leaflet/leaflet.css" rel="stylesheet">
-  <style>
-body,
-html,
-.map-container,
-#map {
-  height: 100%;
-}
-  </style>
-</head>
-<body>
-  <div class="map-container">
-    <div id="map"></div>
-  </div>
-  <script src="leaflet/leaflet.js"></script>
-  <script src="leaflet/leaflet.ajax.js"></script>
-  <script>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-var map = new L.map("map")
-map.setView([43.43,-80.46], 11);
+    <title>Nutrition for Learning Project</title>
 
-var tile_url = "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
-var tile_options = {
-  maxZoom: 16,
-  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}
-var tile = new L.tileLayer(tile_url, tile_options);
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
-map.addLayer(tile);
+    <link href="https://api.tiles.mapbox.com/mapbox.js/v2.2.3/mapbox.css" rel="stylesheet">
+    <link href="https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css" rel="stylesheet">
+    <link href="https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css" rel="stylesheet">
 
-var neighbourhoodLayer = new L.GeoJSON.AJAX("neighbourhoods.json");
-map.addLayer(neighbourhoodLayer);
-  </script>
+    <link href="offcanvas.css" rel="stylesheet">
+
+    <style>
+      /* make the map full height */
+      html, body, main, .row, #map, #sidebar {
+        height: 100%;
+      }
+
+      /* bootstrap.css sets font-family for these */
+      body, .tooltip, .popover {
+        font-family: "Source Sans Pro";
+      }
+
+      /* .navbar min-height */
+      body {
+        padding-top: 50px;
+      }
+
+      /* use h1 in the navbar */
+      h1 {
+        margin: 0;
+        font-weight: 600;
+      }
+
+      /* no padding in the sidebar */
+      #sidebar {
+        padding-right: inherit;
+        padding-left: inherit;
+        overflow: auto;
+      }
+
+      /* list-group tweaks */
+      .list-group-item:first-child {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+
+      .list-group-item:last-child {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      
+      div.tab-pane {
+        padding-top: 1em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="navbar navbar-inverse navbar-fixed-top">
+      <nav class="container-fluid" role="navigation">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+              <span class="sr-only">Navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <h1 class="navbar-brand">Nutrition for Learning</h1>
+          </div> <!--navbar-header-->
+
+          <div class="navbar-collapse collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li class="visible-xs">
+                <a href="#" data-toggle="offcanvas">List of Schools</a>
+              </li>
+            </ul>
+          </div><!--navbar-collapse-->
+      </nav>
+    </header>
+
+    <main class="container-fluid">
+      <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+
+          <!--school list-->
+          <ul class="list-group" id="school-list"></ul>
+
+        </div> <!--sidebar-->
+        <div class="col-xs-12 col-sm-9" id="map"></div>
+      </div> <!--row-->
+    </main>
+
+    <div class="modal fade" id="school-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content" id="modal-content"></div>
+      </div>
+    </div><!--school-modal-->
+
+    <!-- Javascripts -->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+
+    <script src="https://api.tiles.mapbox.com/mapbox.js/v2.2.3/mapbox.js"></script>
+    <script src="https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script>
+
+    <script src="offcanvas.js"></script>
+
+    <!-- Data -->
+    <script src="schools.js"></script>
+    <script src="programs.js"></script>
+    <script src="districts-geo.js"></script>
+    <script src="districts.js"></script>
+    <script src="school-summary.js"></script>
+    <script src="neighbourhood-summary.js"></script>
+
+    <!-- Templates -->
+    <script type="text/template" id="school-list-item">
+      <li class="list-group-item" id="{{layerId}}" data-lat="{{lat}}" data-lng="{{lng}}">
+        <h5 class="list-group-item-heading feature-name">
+          {{schoolName}}
+          <small><br>{{schoolCity}} ({{district.Name}})</small>
+        </h5>
+      </li>
+    </script>
+
+    <script type="text/template" id="school-modal-content">
+      <div class="modal-header">
+        <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title text-primary" id="feature-title">{{schoolName}}</h3>
+        <p>{{schoolAddress}}, {{schoolCity}}</p>
+      </div>
+      <div class="modal-body" id="feature-info">
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active">
+            <a href="#summary" aria-controls="summary" role="tab" data-toggle="tab">Summary</a>
+          </li>
+          <li role="presentation">
+            <a href="#programs" aria-controls="programs" role="tab" data-toggle="tab">Programs</a>
+          </li>
+          <li role="presentation">
+            <a href="#school" aria-controls="school" role="tab" data-toggle="tab">School Profile</a>
+          </li>
+          <li role="presentation">
+            <a href="#neighbourhood" aria-controls="neighbourhood" role="tab" data-toggle="tab">Neighbourhood</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="summary">
+            {{#with school_summary}}
+            <h4>School Summary</h4>
+            <table class="table">
+              <tbody>
+                <tr>
+                  <th>Enrolment</th>
+                  <td>{{enrolment}}</td>
+                </tr>
+                <tr>
+                  <th>Students accessing program</th>
+                  <td>{{num_unique}} ({{per_accessing}}%)</td>
+                </tr>
+                <tr>
+                  <th>Below median on EQAO tests</th>
+                  <td>{{num_achieve}} ({{per_achieve}}%)</td>
+                </tr>
+                <tr>
+                  <th>Students bused to school</th>
+                  <td>{{num_transported}} ({{per_transported}}%)</td>
+                </tr>
+                <tr>
+                  <th>Parents with university education</th>
+                  <td>{{university}}</td>
+                </tr>
+                <tr>
+                  <th>Low income families</th>
+                  <td>{{low_income}}</td>
+                </tr>
+                <tr>
+                  <th>Non-english newcomer families</th>
+                  <td>{{non_english_newcomers}}</td>
+                </tr>
+              </tbody>
+            </table>
+            {{/with}}
+
+            {{#with neighbourhood_summary}}
+            <h4>Neighbourhood Summary</h4>
+            <table class="table">
+              <tbody>
+                <tr>
+                  <th>Population 0-19</th>
+                  <td>{{population}} ({{percent}}%)</td>
+                </tr>
+                <tr>
+                  <th>Census families with children</th>
+                  <td>{{families}}</td>
+                </tr>
+                <tr>
+                  <th>Single parent familes</th>
+                  <td>{{single_parent}} ({{single_parents}}%)</td>
+                </tr>
+                <tr>
+                  <th>Non-english at home</th>
+                  <td>{{not_english}}</td>
+                </tr>
+                <tr>
+                  <th>Occupied dwellings</th>
+                  <td>{{dwellings}}</td>
+                </tr>
+                <tr>
+                  <th>Non-single-detached homes</th>
+                  <td>{{non_semi_detached}} ({{non_single_detached}}%)</td>
+                </tr>
+              </tbody>
+            </table>
+            {{/with}}
+          </div>
+
+          <div role="tabpanel" class="tab-pane" id="programs">
+            {{#if programs}}
+              {{#each programs}}
+              <table class="table table-bordered">
+                <caption><h4>{{name}}</h4></caption>
+                <thead>
+                  <th>Program</th>
+                  <th>Pop.</th>
+                  <th>Avg.</th>
+                  <th>Unique</th>
+                  <th>Days</th>
+                  <th>Weeks</th>
+                </thead>
+                <tbody>
+                <td>
+                  {{programs}}
+                  {{#if designation}}({{designation}}){{/if}}</td>
+                <td>{{pop}}</td>
+                <td>{{average}}</td>
+                <td>{{unique}}</td>
+                <td>{{days}}</td>
+                <td>{{weeks}}</td>
+                </tbody>
+              </table>
+              {{/each}}
+            {{else}}
+            <h5>No programs at this site.</h5>
+            {{/if}}
+          </div>
+          <div role="tabpanel" class="tab-pane" id="school">
+          {{#with properties}}
+          <table class="table">
+            <tbody>
+              <tr><th>Board</th><td>{{board}}</td></tr>
+              <tr><th>Level</th><td>{{level}}</td></tr>
+              <tr><th>Language</th><td>{{language}}</td></tr>
+              {{#each languages}}
+              <tr><th>{{@key}}</th><td>{{this}}</td></tr>
+              {{/each}}
+              <tr><th>Opened</th><td>{{opened}}</td></tr>
+              <tr><th>Enrolment</th><td>{{enrolment}}</td></tr>
+              <tr><th>Grade Range</th><td>{{grades}}</td></tr>
+              {{#if conditions}}
+              <tr><th>Special Conditions Code</th><td>{{conditions}}</td></tr>
+              {{/if}}
+              {{#if gifted}}
+              <tr><th>Gifted</th><td>{{gifted}}</td></tr>
+              {{/if}}
+              {{#if special}}
+              <tr><th>Special education students</th><td>{{special}}</td></tr>
+              {{/if}}
+              {{#if university}}
+              <tr><th>Parents with university education</th><td>{{university}}</td></tr>
+              {{/if}}
+              {{#if website}}
+              <tr><th>Website</th><td><a href="{{website}}">{{website}}</a></td></tr>
+              {{/if}}
+              {{#if low_income}}
+              <tr><th>Low income families</th><td>{{low_income}}</td></tr>
+              {{/if}}
+            </tbody>
+          </table>
+          {{/with}}
+          {{#if achievements}}
+            <h4>Achievements</h4>
+            <p>Percentage of students achieving provincial standard</p>
+            <table class="table">
+              <tbody>
+            {{#each achievements}}
+                 <tr><th>{{@key}}</th><td>{{this}}</td></tr>
+            {{/each}}
+              <tbody>
+            </table>
+          {{/if}}
+          </div>
+          <div role="tabpanel" class="tab-pane" id="neighbourhood">
+            {{#with district}}
+            <h4>{{Name}} ({{Municipality}})</h4>
+            <table class="table">
+              <tbody>
+                <tr><th>Population (2011)</th><td>{{Pop2011}}</td></tr>
+                <tr><th>Children 0-4</th><td>{{Pop04}} ({{Percent04}}%)</td></tr>
+                <tr><th>Children 5-9</th><td>{{Pop59}} ({{Percent59}}%)</td></tr>
+                <tr><th>Children 10-14</th><td>{{Pop1014}} ({{Percent1014}}%)</td></tr>
+                <tr><th>Youth 15-19</th><td>{{Pop1519}} ({{Percent1519}}%)</td></tr>
+              </tbody>
+            </table>
+            {{/with}}
+
+            {{#with neighbourhood}}
+              <h4>{{neighbourhood}}</h4>
+            <ul class="list-group">
+              {{#if social_cohesion}}
+              <li class="list-group-item"><strong>{{social_cohesion}}%</strong> of families experience <strong>social cohesion</strong></li>
+              {{/if}}
+
+              {{#if disposable_income}}
+              <li class="list-group-item"><strong>{{disposable_income}}</strong> % of families without <strong>disposable income</strong></li>
+              {{/if}}
+
+              {{#if early_development}}
+              <li class="list-group-item"><strong>{{early_development}}</strong> % of children scoring low in <strong>early development</strong></li>
+              {{/if}}
+
+              {{#if infants_at_risk}}
+              <li class="list-group-item"><strong>{{infants_at_risk}}</strong> % of <strong>infants at risk</strong></li>
+              {{/if}}
+            </ul>
+            {{/with}}
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+      </li>
+    </script>
+
+
+    <!-- Handlebars -->
+    <script>
+      var template = function(elementId) {
+        return Handlebars.compile(document.getElementById(elementId).innerHTML);
+      }
+      var listTemplate = template("school-list-item");
+      var modalTemplate = template("school-modal-content");
+    </script>
+
+
+    <!-- School data from geojson features -->
+    <script>
+      var na_to_null = function(val) {
+        if (val.toString().toLowerCase() == "na") {
+          return null;
+        } else if (val.toString().toLowerCase() == "not applicable") {
+          return null;
+        } else {
+          return val;
+        }
+      }
+      var rank = function(indicator) {
+        switch (indicator) {
+          case 4: return "Highest";
+          case 3: return "Higher";
+          case 2: return "Lower";
+          case 1: return "Lowest";
+          default: return null;
+        }
+      }
+      var rankings = function(neighbourhood) {
+        return {
+          "neighbourhood": neighbourhood["Neighbourhood"],
+          "disposable_income": rank(neighbourhood["Disposable Income"]),
+          "early_development": rank(neighbourhood["Early Development"]),
+          "infants_at_risk": rank(neighbourhood["Infants at Risk"]),
+          "social_cohesion": na_to_null(neighbourhood["Low Social Cohesion"])
+        }
+      }
+      var languages = function(props) {
+        if (props["School Language"] == "French") {
+          return {
+            "Not French": props["not_french"],
+            "Non French speaking newcomers": props["non_french_newcomers"]
+          }
+        } else {
+          return {
+            "Not English": props["not_english"],
+            "Non English speaking newcomers": props["non_english_newcomers"]
+          }
+        }
+      }
+      var schoolData = function(layer) {
+        var prop = layer.feature.properties;
+        var achievements = function(school) {
+          switch (school["School Level"]) {
+            case "Elementary": return {
+              "Grade 3 Math": school["grade_3_math"],
+              "Grade 3 Reading": school["grade_3_reading"],
+              "Grade 3 Writing": school["grade_3_writing"],
+              "Grade 6 Math": school["grade_6_math"],
+              "Grade 6 Reading": school["grade_6_reading"],
+              "Grade 6 Writing": school["grade_6_writing"]
+            };
+            case "Secondary": return {
+              "Grade 9 Academic": school["grade_9_academic"],
+              "Grade 9 Applied": school["grade_9_applied"],
+              "Grade 10 Literacy": school["grade_10_literacy"]
+            };
+            default: return null;
+          }
+        }
+        var data = {
+          "layerId": L.stamp(layer),
+          "lat": layer.getLatLng().lat,
+          "lng": layer.getLatLng().lng,
+          "schoolName": prop["School Name"],
+          "schoolAddress": prop["Street"],
+          "schoolCity": prop["City"],
+          "schoolId": layer.feature.id,
+          "programs": programs[layer.feature.id],
+          "district": districts[prop["district"]],
+          "achievements": achievements(prop),
+          "school_summary": school_summary[layer.feature.id],
+          "neighbourhood": rankings(prop["neighbourhood"]),
+          "neighbourhood_summary": neighbourhood_summary[prop["district"]],
+          "properties": {
+            "board": prop["Board Name"],
+            "opened": new Date(prop["Date Open"]).getFullYear(),
+            "enrolment": prop["Enrolment"],
+            "grades": prop["Grade Range"],
+            "language": prop["School Language"],
+            "languages": languages(prop),
+            "level": prop["School Level"],
+            "conditions": na_to_null(prop["School Special Conditions Code"]),
+            "gifted": na_to_null(prop["gifted"]),
+            "special": na_to_null(prop["special_education"]),
+            "university": na_to_null(prop["university_education"]),
+            "website": prop["website"],
+            "low_income": na_to_null(prop["low_income"])
+          }
+        }
+        return data;
+      }
+    </script>
+
+
+    <!-- CSS functions -->
+    <script>
+      // remove a class from an element, eg, "active"
+      var removeClass = function(className) {
+        return function (element) {
+          element.classList.remove(className);
+        }
+      }
+      var removeActive = removeClass("active");
+
+      // get an array of tagName in an element, eg, <li> in <ul>
+      var tagArray = function(tagName) {
+        return function (element) {
+          var elementCollection = element.getElementsByTagName(tagName);
+          return Array.prototype.slice.call(elementCollection);
+        }
+      }
+      var listArray = tagArray("li");
+    </script>
+
+
+    <!-- Map setup -->
+    <script>
+      L.mapbox.accessToken = "pk.eyJ1IjoidG9kZHR1cm5idWxsIiwiYSI6IlVxTDhQT0EifQ.h5dUJmmsLh_zQ7hZQJjBbg";
+      var m = {
+        "id": "mapbox.streets",
+        "centre": [43.43,-80.46],
+        "zoom": 11
+      };
+
+      clusterOptions = {
+        spiderfyOnMaxZoom: true,
+        showCoverageOnHover: false,
+        zoomToBoundsOnClick: true,
+        disableClusteringAtZoom: 15,
+        maxClusterRadius: 30
+      }
+    </script>
+
+
+    <!-- Mapping -->
+    <script>
+      var map = L.mapbox.map("map", m.id).setView(m.centre, m.zoom);
+
+      var markerClusters = new L.MarkerClusterGroup(clusterOptions);
+      map.addLayer(markerClusters);
+
+      var circleHighlight = L.circle([0,0], 50, {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5
+      }).addTo(map);
+
+      var schoolList = document.getElementById("school-list"); // sidebar
+      //var schoolsLayer = L.geoJson(null);
+      
+      var schoolMarkers = L.geoJson(null, {
+        onEachFeature: function (feature, layer) {
+          if (feature.properties) {
+            var data = schoolData(layer);
+
+            layer.on({
+              click: function (e) {
+                document.getElementById("modal-content").innerHTML = modalTemplate(data);
+                circleHighlight.setLatLng(layer.getLatLng())
+                $("#school-modal").modal("show"); // seems to need JQuery to work
+              }
+            });
+
+            $("#school-list").append(listTemplate(data)); // easier with JQuery
+            document.getElementById(data.layerId).onclick = function clickSchool() {
+              // Clicking on a school name sets it to "active"
+              listArray(schoolList).forEach(removeActive);
+              this.classList.add("active");
+              map.setView(layer.getLatLng(), 15);
+              circleHighlight.setLatLng(layer.getLatLng());
+            }
+          }
+        }
+      });
+
+      schoolMarkers.addData(schools);
+      //map.addLayer(schoolsLayer);
+      markerClusters.addLayer(schoolMarkers);
+
+      var neighbourhoodsLayer = L.geoJson(
+        shapes,
+        {"color": "#000", "weight": 2, "opacity": .5, "fillOpacity": 0}
+      );
+      map.addLayer(neighbourhoodsLayer);
+
+
+
+
+
+
+      map.on("moveend", function (e) {
+        var bounds = map.getBounds();
+        listArray(schoolList).forEach(function displaySchool(element) {
+          var latlng = L.latLng(element.dataset.lat, element.dataset.lng)
+          if(bounds.contains(latlng)) {
+            element.style.display = "block";
+          } else {
+            element.style.display = "none";
+          };
+        });
+      });
+
+      // Set up markers and sidebar list
+      /*
+      var markerGroup = [];
+      schools.features.forEach(function(feature) {
+        var latlng = feature.geometry.coordinates.reverse();
+        var marker = new L.marker(latlng);
+        var props = feature.properties;
+        marker.bindPopup(props["School Name"]);
+        markerGroup.push({
+          marker: marker
+        });
+      });
+      */
+
+    </script>
 </body>
 </html>
-
