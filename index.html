@@ -60,6 +60,33 @@
       div.tab-pane {
         padding-top: 1em;
       }
+
+      /* Marker cluster colours */
+      .marker-cluster-small {
+        background-color: rgba(189, 215, 231, 0.6);
+      }
+      .marker-cluster-small div {
+        background-color: rgba(107, 174, 214, 0.6);
+      }
+      .marker-cluster-medium,
+      .marker-cluster-large {
+        background-color: rgba(189, 215, 231, 0.6);
+      }
+      .marker-cluster-medium div,
+      .marker-cluster-large div {
+        background-color: rgba(239,243,255, 0.6);
+      }
+      
+      /* Map Legend */
+      div.legend {
+        height: 1em;
+      }
+      div.legend i {
+        width: 2em;
+        height: 1em;
+        float: left;
+      }
+      
     </style>
   </head>
 
@@ -77,7 +104,12 @@
           </div> <!--navbar-header-->
 
           <div class="navbar-collapse collapse" id="navbar-collapse">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <a href="#" class="navbar-link" data-toggle="modal" data-target="#glossary-modal">
+                  Glossary
+                </a>
+              </li>
               <li class="visible-xs">
                 <a href="#" data-toggle="offcanvas">List of Schools</a>
               </li>
@@ -104,6 +136,189 @@
       </div>
     </div><!--school-modal-->
 
+    <div class="modal fade" id="glossary-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content" id="modal-content">
+          <div class="modal-header">
+            <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 class="modal-title text-primary">Glossary</h3>
+          </div>
+          <div class="modal-body">
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#summary-glossary" aria-controls="summary" role="tab" data-toggle="tab">Summary</a>
+              </li>
+              <li role="presentation">
+                <a href="#programs-glossary" aria-controls="programs" role="tab" data-toggle="tab">Programs</a>
+              </li>
+              <li role="presentation">
+                <a href="#school-glossary" aria-controls="school" role="tab" data-toggle="tab">School Profile</a>
+              </li>
+              <li role="presentation">
+                <a href="#neighbourhood-glossary" aria-controls="neighbourhood" role="tab" data-toggle="tab">Neighbourhood</a>
+              </li>
+              <li role="presentation">
+                <a href="#needs-glossary" aria-controls="needs" role="tab" data-toggle="tab">Needs</a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="summary-glossary">
+                <h4>School Summary</h4>
+                <dl>
+                  <dt>Enrolment</dt>
+                  <dd>Total enrolment of the school (using the most recent Nutrition for Learning numbers where possible, but in instances when they were unavailable, the figures from the Ministry of Education were used).</dd>
+
+                  <dt>Students accessing Nutrition for Learning</dt>
+                  <dd>The number and percentage of students accessing at least 1 Nutrition for Learning Program at the school.</dd>
+
+                  <dt>Below median on achievement tests</dt>
+                  <dd>% of Grade 3 and 6 or Grade 9 and 10 tests where the school ranked in the bottom half for % of students achieving provincial standard (or passing the test on their first attempt, for the Grade 10 Literacy test).</dd>
+
+                  <dt>Students bused to school</dt>
+                  <dd>The number and percentage of students transported to school by bus.</dd>
+
+                  <dt>Parents with university education</dt>
+                  <dd>The estimated percentage of children who attend the school and who have at least one parent whose highest certificate, diploma or degree is from a university. This is calculated using postal code data collected by the school and cross-referenced with Statistics Canada data about education from the 2006 Census.</dd>
+
+                  <dt>Students from low income families</dt>
+                  <dd>The estimated percentage of children who attend the school and whose families devote a larger share of income to basic necessities – food, shelter and clothing – than the average family. This is calculated using postal code data collected by the school and cross-referenced with Statistics Canada data about income from the 2006 Census.</dd>
+
+                  <dt>Non-English newcomer students</dt>
+                  <dd>% of students who are new to Canada from a non-English speaking country</dd>
+                </dl>
+
+                <h4>Neighbourhood Summary</h4>
+                <dl>
+                <dt>Population 0-19</dt>
+                <dd>The population of the census planning district that is 0 to 19 years old (2011 census data).
+                </dd>
+                <dt>Census families with children</dt>
+                <dd>Total number of married couples with children, common-law couples with children, and lone-parent families in the census planning district (2011 census data).
+                </dd>
+                <dt>Single parent families</dt>
+                <dd>The number and percentage of lone-parent families in the census planning district (2011 census data; percentage of census families with children).
+                </dd>
+                <dt>Non-English at home</dt>
+                <dd>Population (number and percentage) of the census planning district who do not speak English as one of their main languages at home (2011 census data).
+                </dd>
+                <dt>Occupied dwellings</dt>
+                <dd>The total number of occupied dwellings in the census planning district (2011 census data).
+                </dd>
+                <dt>Non-single-detached homes</dt>
+                <dd>The number and percentage of occupied dwellings in the census planning district that are not single-detached houses.
+                </dd>
+                </dl>
+              </div>
+              <div role="tabpanel" class="tab-pane active" id="programs-glossary">
+                <dl>
+                <dt>Program</dt>
+                <dd>Nutrition for Learning program offered (e.g. breakfast, lunch, snack)
+                </dd>
+                <dt>Pop.</dt>
+                <dd>Total enrolment of the school
+                </dd>
+                <dt>Avg.</dt>
+                <dd>Average number of students per day that the program serves
+                </dd>
+                <dt>Unique</dt>
+                <dd>Total number of students accessing the program per year
+                </dd>
+                <dt>Days</dt>
+                <dd>Number of days per week that the program runs
+                </dd>
+                <dt>Weeks</dt>
+                <dd>Number of weeks per year that the program operates
+                </dd>
+                </dl>
+              </div>
+              <div role="tabpanel" class="tab-pane active" id="school-glossary">
+                <dl>
+                <dt>First language is not English</dt>
+                <dd>The percentage of the student population whose first spoken language is not English.
+                </dd>
+                <dt>First language is not French</dt>
+                <dd>The percentage of the student population whose first spoken language is not French.
+                </dd>
+                <dt>Non English speaking newcomers</dt>
+                <dd>% of students who are new to Canada from a non-English speaking country
+                </dd>
+                <dt>Non French speaking newcomers</dt>
+                <dd>% of students who are new to Canada from a non-French speaking country
+                </dd>
+                <dt>Special education students</dt>
+                <dd>The percentage of the student population who are in special education programs or receive special education services. This includes students with identified and non-identified exceptionalities, but excludes students identified as gifted.
+                </dd>
+                <dt>Parents with university education</dt>
+                <dd>The estimated percentage of children who attend the school and who have at least one parent whose highest certificate, diploma or degree is from a university. This is calculated using postal code data collected by the school and cross-referenced with Statistics Canada data about education from the 2006 Census.
+                </dd>
+                <dt>Low income families</dt>
+                <dd>The estimated percentage of children who attend the school and whose families devote a larger share of income to basic necessities – food, shelter and clothing – than the average family. This is calculated using postal code data collected by the school and cross-referenced with Statistics Canada data about income from the 2006 Census.
+                </dd>
+                <dt>Achievement - Grades 3, 6 and 9</dt>
+                <dd>The percentage of students in the specified grade who met or exceeded the provincial standard on the Education Quality and Accountability Office (EQAO) test in the specified year. The provincial standard is equivalent to a “B.”
+                </dd>
+                <dt>Achievement - Grade 10</dt>
+                <dd>The percentage of students who passed the Ontario Secondary School Literacy Test (OSSLT) on their first attempt when they were in Grade 10.
+                </dd>
+                </dl>
+              </div>
+              <div role="tabpanel" class="tab-pane active" id="neighbourhood-glossary">
+                <dl>
+                  <dt>Population (2011)</dt>
+                  <dd>Total population of the census planning district (2011 census data)
+                  </dd>
+                  <dt>Children 0-4</dt>
+                  <dd>Total number of children in the census planning district aged 0 to 4 (2011 census data)
+                  </dd>
+                  <dt>Children 5-9</dt>
+                  <dd>Total number of children in the census planning district aged 5 to 9 (2011 census data)
+                  </dd>
+                  <dt>Children 10-14</dt>
+                  <dd>Total number of children in the census planning district aged 10 to 14 (2011 census data)
+                  </dd>
+                  <dt>Youth 15-19</dt>
+                  <dd>Total number of youth in the census planning district aged 15 to 19 (2011 census data)
+                  </dd>
+                  <dt>Social cohesion</dt>
+                  <dd>Based on the percentage of families experiencing social cohesion, defined as scoring at least a 7 (out of 10) on the Neighbourhood Social Cohesion Index. Gathered from the Kindergarten Parent Survey (2010), and calculated using a larger neighbourhood boundary than the census planning districts.
+                  </dd>
+                  <dt>Disposable income</dt>
+                  <dd>Based on the percentage of families without disposable income. Gathered from the Kindergarten Parent Survey (2010), and calculated using a larger neighbourhood boundary than the census planning districts.
+                  </dd>
+                  <dt>Early Development Instrument</dt>
+                  <dd>Based on the percentage of children scoring low on two or more domains of the Early Development Instrument (2010); calculated using a larger neighbourhood boundary than the census planning districts.
+                  </dd>
+                  <dt>Infants at Risk</dt>
+                  <dd>Based on the percentage of infants screened with potential risk on the Healthy Babies Healthy Children Screen in 2013; calculated using a larger neighbourhood boundary than the census planning districts.
+                  </dd>
+                </dl>
+              </div>
+              <div role="tabpanel" class="tab-pane active" id="needs-glossary">
+                <h4>School Need Index</h4>
+                <p>The index was created based on consideration of six variables indicative of the degree of need of a school. The following data was available for most schools, with the figures based on the percentage of total enrolment for each school.</p>
+                <ul>
+                <li>% of students who have accessed a Nutrition for Learning program (low % indicating need)</li>
+                <li>% of students bused to school (high % indicating need)</li>
+                <li>% of students living in low-income households (high % indicating need)</li>
+                <li>% of students whose parents have some university education (low % indicating need)</li>
+                <li>% of students new to Canada from non-English households (high % indicating need)</li>
+                <li>% achieving the provincial standard on EQAO testing (low % indicating need)</li>
+                </ul>
+                <h4>District Need Index</h4>
+                <p>The index was created based on consideration of four variables indicative of the degree of need of a neighbourhood:</p>
+                <ul>
+                <li>% of the total population in 2011 that is 0-19 years old (high % indicating need)</li>
+                <li>% of single-parent families, out of total census families (high % indicating need)</li>
+                <li>% of dwelling that are not single-detached houses (high % indicating need)</li>
+                <li>% of the population for which English is not one of the languages spoken most often at home (high % indicating need)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!--glossary-modal-->
+
     <!-- Javascripts -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -111,6 +326,7 @@
 
     <script src="https://api.tiles.mapbox.com/mapbox.js/v2.2.3/mapbox.js"></script>
     <script src="https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script>
+    <script src="leaflet/Leaflet.MakiMarkers.js"></script>
 
     <script src="offcanvas.js"></script>
 
@@ -118,8 +334,10 @@
     <script src="schools.js"></script>
     <script src="programs.js"></script>
     <script src="districts-geo.js"></script>
+    <script src="district-needs.js"></script>
     <script src="districts.js"></script>
     <script src="school-summary.js"></script>
+    <script src="school-needs.js"></script>
     <script src="neighbourhood-summary.js"></script>
 
     <!-- Templates -->
@@ -216,7 +434,7 @@
                   </tr>
                   <tr>
                     <th>Non-English at home</th>
-                    <td>{{not_english}}</td>
+                    <td>{{not_english}} ({{per_not_english}}%)</td>
                   </tr>
                   <tr>
                     <th>Occupied dwellings</th>
@@ -358,6 +576,35 @@
       </li>
     </script>
 
+    <script type="text/template" id="legend">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <h5 class="list-group-item-heading">
+            School Need Index<small><br>Lowest to Highest Need</small>
+          </h5>
+          <div class="list-group-item-text legend">
+            <i style="background:#ffffb2;"></i>
+            <i style="background:#fed976;"></i>
+            <i style="background:#feb24c;"></i>
+            <i style="background:#fd8d3c;"></i>
+            <i style="background:#f03b20;"></i>
+            <i style="background:#bd0026;"></i>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <h5 class="list-group-item-heading">
+            District Need Index<small><br>Lowest to Highest Need</small>
+          </h5>
+          <div class="list-group-item-text legend">
+            <i style="background:#bae4b3;"></i>
+            <i style="background:#74c476;"></i>
+            <i style="background:#31a354;"></i>
+            <i style="background:#006d2c;"></i>
+          </div>
+        </li>
+      </ul>
+    </script>
+
 
     <!-- Handlebars -->
     <script>
@@ -366,6 +613,7 @@
       }
       var listTemplate = template("school-list-item");
       var modalTemplate = template("school-modal-content");
+      var legendTemplate = template("legend");
     </script>
 
 
@@ -452,6 +700,7 @@
           "schoolId": layer.feature.id,
           "programs": programs[layer.feature.id],
           "district": districts[prop["district"]],
+          "need": school_needs[layer.feature.id],
           "achievements": achievements(prop),
           "school_summary": school_summary[layer.feature.id],
           "neighbourhood": rankings(prop["neighbourhood"]),
@@ -511,7 +760,7 @@
         spiderfyOnMaxZoom: true,
         showCoverageOnHover: false,
         zoomToBoundsOnClick: true,
-        disableClusteringAtZoom: 15,
+        disableClusteringAtZoom: 14,
         maxClusterRadius: 30
       }
     </script>
@@ -525,14 +774,32 @@
       map.addLayer(markerClusters);
 
       var circleHighlight = L.circle([0,0], 50, {
-        color: 'red',
-        fillColor: '#f03',
+        color: "#a50f15",
+        fillColor: "#a50f15",
         fillOpacity: 0.5
       }).addTo(map);
 
       var schoolList = document.getElementById("school-list"); // sidebar
-      //var schoolsLayer = L.geoJson(null);
-      
+
+      var schoolColour = function(need) {
+        switch (need) {
+          case "1": return "#ffffb2";
+          case "2": return "#fed976";
+          case "3": return "#feb24c";
+          case "4": return "#fd8d3c";
+          case "5": return "#f03b20";
+          case "6": return "#bd0026";
+          default: return "#ccc";
+        }
+      }
+
+      var schoolIcon = function(id) {
+        if (programs[id] == null) {
+          return "circle-stroked";
+        } else {
+          return "restaurant";
+        }
+      }
       var schoolMarkers = L.geoJson(null, {
         onEachFeature: function (feature, layer) {
           if (feature.properties) {
@@ -555,6 +822,11 @@
               circleHighlight.setLatLng(layer.getLatLng());
             }
           }
+        },
+        pointToLayer: function (feature, latlng) {
+          var colour = schoolColour(school_needs[feature.id]);
+          var icon = L.MakiMarkers.icon({icon: schoolIcon(feature.id), color: colour, size: "m"});
+          return L.marker(latlng, {icon: icon});
         }
       });
 
@@ -562,16 +834,38 @@
       //map.addLayer(schoolsLayer);
       markerClusters.addLayer(schoolMarkers);
 
+      var districtColour = function(need) {
+        switch (need) {
+          case "1": return "#bae4b3";
+          case "2": return "#74c476";
+          case "3": return "#31a354";
+          case "4": return "#006d2c";
+          default: return "#ccc";
+        }
+      }
+
       var neighbourhoodsLayer = L.geoJson(
-        shapes,
-        {"color": "#000", "weight": 2, "opacity": .5, "fillOpacity": 0}
+        shapes, {
+          style: function (feature) {
+            var need = district_needs[feature.id];
+            return {
+              color: "#999",
+              weight: 1,
+              fillColor: districtColour(need),
+              fillOpacity: .6
+            };
+          }
+        }
       );
       map.addLayer(neighbourhoodsLayer);
 
-
-
-
-
+      var legend = L.control({position: "topright"});
+      legend.onAdd = function (map) {
+        var div = L.DomUtil.create("div", "info");
+        div.innerHTML = legendTemplate();
+        return div;
+      };
+      legend.addTo(map);
 
       map.on("moveend", function (e) {
         var bounds = map.getBounds();
